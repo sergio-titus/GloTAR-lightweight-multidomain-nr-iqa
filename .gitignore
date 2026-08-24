@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data
+data/
+datasets/
+
+# Experiments
+logs/
+outputs/
+wandb/
+*.zip
+*.tar
+*.tar.gz
+
+# Temporary checkpoints
+*.pth
+
+# Keep official released model only
+weights/*
+!weights/multidomain_iqa.pt

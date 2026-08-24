@@ -1,0 +1,39 @@
+seed: 42
+device: cuda
+paths:
+  manifest_path: data/multidomain_iqa_manifest.csv
+  checkpoints_dir: weights
+  results_dir: results
+preprocessing:
+  global_branch_resize:
+  - 384
+  - 384
+  target_branch_crop:
+  - 224
+  - 224
+  max_target_regions_per_image: 6
+model:
+  backbone: mobilenet_v3_small
+  pretrained: true
+  embedding_dim: 576
+  kan_downsample_dim: 128
+  kan_fusion_hidden: 512
+  branches:
+  - global
+  - target
+  mos_min: 1.0
+  mos_max: 5.0
+training:
+  batch_size: 32
+  epochs: 20
+  lr: 5.0e-05
+  weight_decay: 0.0001
+  num_workers: 4
+  balanced_sampling: true
+evaluation:
+  metrics:
+  - srcc
+  - plcc
+  - krcc
+  - rmse
+  - mae

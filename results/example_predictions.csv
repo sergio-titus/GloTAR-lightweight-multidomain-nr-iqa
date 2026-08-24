@@ -1,0 +1,6 @@
+rank,image,predicted_mos,Q
+1,sample-image-1.jpg,4.0037,0.7509
+2,sample-image-5.jpg,3.1468,0.5367
+3,sample-image-3.jpg,3.1224,0.5306
+4,sample-image-4.jpeg,1.8626,0.2157
+5,sample-image-2.jpg,1.606,0.1515
