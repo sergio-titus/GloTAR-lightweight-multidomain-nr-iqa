@@ -33,6 +33,26 @@ The model was trained and evaluated across five IQA datasets:
 - TID2013
 - **Drone-IQA GC 2026: Target-Aware Image Quality Assessment for Low-Altitude UAV Images**
 
+## Reproducibility
+
+The repository provides the code, experimental configurations, fixed
+data-partition manifests, and evaluation outputs used to support the
+reported experiments.
+
+Available reproducibility material includes:
+
+- fixed train/validation/test assignments for all datasets;
+- reference-content-disjoint partitions for TID2013 and KADID-10K;
+- the exact internal Drone-IQA partition used in the experiments;
+- training and evaluation configurations;
+- seed-level results for repeated GloTAR training runs;
+- the experimental protocol and implementation details;
+- primary held-out evaluation results.
+
+The original image datasets are not redistributed. Users should obtain
+them from their respective official sources and use the provided split
+manifests to reproduce the experimental partitions.
+
 ### Drone-IQA protocol used in this repository
 
 Only the publicly released **Drone-IQA GC 2026 training images and `train.csv` annotations** were used.
@@ -41,9 +61,8 @@ The official validation and held-out test annotations are not publicly available
 
 The 3,600 publicly labeled Drone-IQA training images were internally partitioned into:
 
-- 1,980 images for training
+- 2,520 images for training
 - 540 images for validation
-- 540 images for calibration
 - 540 images for internal testing
 
 For the final five-dataset multi-domain experiment, the former calibration subset was merged back into training, resulting in:
