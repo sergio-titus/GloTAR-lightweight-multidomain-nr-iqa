@@ -1,0 +1,99 @@
+{
+  "snapshot_date": "2026-09-19",
+  "seed": 42,
+  "manifest_rows": 38798,
+  "train": 27983,
+  "val": 4600,
+  "test": 6215,
+  "protocol": {
+    "quality_direction": "higher = better",
+    "unified_mos": "1 + 4Q",
+    "kadid_direction_corrected": true,
+    "datasets": [
+      "BIQ2021",
+      "Drone-IQA",
+      "KADID10K",
+      "KonIQ10K",
+      "TID2013"
+    ]
+  },
+  "experiments": {
+    "global_only": {
+      "macro_srcc": 0.813057,
+      "macro_plcc": 0.836569,
+      "macro_rmse": 0.111864,
+      "macro_mae": 0.088499
+    },
+    "target_only": {
+      "macro_srcc": 0.723115,
+      "macro_plcc": 0.735864,
+      "macro_rmse": 0.137642,
+      "macro_mae": 0.109736
+    },
+    "global_target_mlp": {
+      "macro_srcc": 0.814014,
+      "macro_plcc": 0.836426,
+      "macro_rmse": 0.111913,
+      "macro_mae": 0.089886
+    },
+    "glotar": {
+      "macro_srcc": 0.817131,
+      "macro_plcc": 0.83876,
+      "macro_rmse": 0.112177,
+      "macro_mae": 0.088847
+    },
+    "glotar_masked": {
+      "macro_srcc": 0.813021,
+      "macro_plcc": 0.834816,
+      "macro_rmse": 0.112309,
+      "macro_mae": 0.089127
+    },
+    "global_native": {
+      "macro_srcc": 0.814046,
+      "macro_plcc": 0.838165,
+      "macro_rmse": 0.11267,
+      "macro_mae": 0.089791
+    },
+    "global_rank_w01": {
+      "macro_srcc": 0.811025,
+      "macro_plcc": 0.833911,
+      "macro_rmse": 0.113418,
+      "macro_mae": 0.089935,
+      "rank_weight": 0.1
+    },
+    "global_native_weighted": {
+      "macro_srcc": 0.810272,
+      "macro_plcc": 0.837339,
+      "macro_rmse": 0.113255,
+      "macro_mae": 0.090698,
+      "additional_parameters": 129
+    }
+  },
+  "diagnostics": {
+    "saliency_padding": {
+      "images_with_less_than_6_regions_pct": 36.6,
+      "mean_valid_regions": 5.029
+    },
+    "zero_padding_embedding": {
+      "l2": 8.543439,
+      "real_crop_mean_l2": 10.185971,
+      "padding_real_ratio": 0.838746,
+      "mean_cosine": 0.802993
+    },
+    "native_weighted": {
+      "mean_normalized_entropy": 0.8494286783647422,
+      "mean_max_weight": 0.3842675006111495,
+      "median_max_weight": 0.3584223985671997
+    }
+  },
+  "current_conclusion": [
+    "Global branch carries most predictive signal.",
+    "Target-only branch is substantially weaker.",
+    "Original saliency GloTAR remains highest single-seed macro SRCC.",
+    "Masked pooling does not improve GloTAR.",
+    "Native-grid patches improve Drone-IQA and KonIQ but hurt KADID/TID.",
+    "Learned weighting of native patches is genuinely selective but does not improve generalization.",
+    "Pairwise ranking loss does not improve global-only baseline.",
+    "Next investigation: audit saliency crop scale before relative-scale local-view experiment."
+  ]
+}
